@@ -1,4 +1,3 @@
-import "./index.css";
 import home from './icons/home.svg';
 import camera from './icons/camera.svg';
 import profile from './icons/profile.svg';
