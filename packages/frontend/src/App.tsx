@@ -1,7 +1,10 @@
+import {Header} from "./header.tsx";
+
+
 function App() {
     return (
         <div>
-            <h1>My cool webpage</h1>
+            <Header></Header>
         </div>
     );
 }
