@@ -1,29 +1,25 @@
 import profile from './icons/profile.svg';
 
 interface PostProp {
-    username : String;
-    description: String;
+  username: string;
+  description: string;
+  images: string[];
 }
 
-export function Post(props : PostProp) {
+export function Post(props: PostProp) {
+  return (
+    <div className="post-container">
+      <div className="user">
+        <img src={profile} alt="Profile" />
+        <h1 className="username">{props.username}</h1>
+      </div>
+      <p>{props.description}</p>
 
-    const img = "https://place-hold.it/300";
-
-    return (
-        <div className="post-container">
-            <div className="user">
-                <img src={profile}/>
-                <h1 className="username"> {props.username} </h1>
-            </div>
-            <p> {props.description}</p>
-
-            <div className="post-images">
-                <img src={img}></img>
-                <img src={img}></img>
-                <img src={img}></img>
-            </div>
-        </div>  
-    );
+      <div className="post-images">
+        {props.images.map((imgUrl, index) => (
+          <img src={imgUrl} alt={`Post image ${index + 1}`} />
+        ))}
+      </div>
+    </div>
+  );
 }
-
-
