@@ -7,22 +7,22 @@ import profile from './icons/profile.svg';
 export function Header() {
     return (
     <nav className="navigation">
-        <ul >
+        <ul>
             <li >
                 <a href="index.html">
-                <img src={home}/>
+                <img src={home} alt=""/>
                 <p>Home</p>
                 </a>
             </li>
             <li>
                 <a href="post.html">
-                <img src={camera}/>
+                <img src={camera} alt=""/>
                 <p>Post</p>
                 </a>
             </li>
             <li>
                 <a href="profile.html">
-                <img src={profile}/>
+                <img src={profile} alt=""/>
                 <p>Profile</p>
                 </a>
             </li>
