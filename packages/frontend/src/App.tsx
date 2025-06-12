@@ -29,7 +29,9 @@ function App() {
         <Routes>
         <Route path={ValidRoutes.HOME} element={
             <MainLayout 
-            lightModeFun = {updateTheme} 
+            lightModeFun = {updateTheme}
+            updateLogin={_setLogin}
+            updateUserName = {_setusername}
             user={user}
             isLogedIn = {isLogedIn}/>} >
             <Route index element={<Feed data={posts} isProfile={false} user={user}/>} />

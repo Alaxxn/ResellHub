@@ -6,12 +6,17 @@ interface MainLayoutProp {
     lightModeFun : () => void;
     user : string;
     isLogedIn : boolean;
+    updateUserName : React.Dispatch<React.SetStateAction<string>>;
+    updateLogin : React.Dispatch<React.SetStateAction<boolean>>;
+
 }
 
 export function MainLayout(props : MainLayoutProp) {
     return (
         <div>
-            <Header 
+            <Header
+            updateUserName= {props.updateUserName}
+            updateLogin = {props.updateLogin}
             lightModeFun = {props.lightModeFun} 
             user = {props.user} 
             isLogedIn= {props.isLogedIn}/>

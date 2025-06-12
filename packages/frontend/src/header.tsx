@@ -2,6 +2,7 @@ import home from './icons/home.svg';
 import camera from './icons/camera.svg';
 import profile from './icons/profile.svg';
 import login from './icons/login.svg';
+import logout from './icons/logout.svg';
 import { Link } from "react-router-dom";
 import "./Header.css";
 
@@ -10,9 +11,17 @@ interface MainLayoutProp {
     lightModeFun : () => void;
     user : string;
     isLogedIn : boolean;
+    updateUserName : React.Dispatch<React.SetStateAction<string>>;
+    updateLogin : React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export function Header(props : MainLayoutProp) {
+    
+    function handleLogOut (){
+        props.updateUserName("");
+        props.updateLogin(false);
+    }
+
     return (
     <nav className="navigation">
         <ul>
@@ -39,12 +48,21 @@ export function Header(props : MainLayoutProp) {
                     Light Mode <input type="checkbox" onChange={props.lightModeFun}/>
                 </label>
             </li>
+            {props.isLogedIn ? 
             <li>
-                <Link to="/login"> 
+                <Link to="/login" onClick={handleLogOut}> 
+                <img src={logout} alt=""/>
+                <p> Logout </p>
+                </Link>
+            </li>
+            :
+            <li>
+                <Link to="/login" > 
                 <img src={login} alt=""/>
                 <p>Login</p>
                 </Link>
             </li>
+            }
         </ul>
 
     </nav>
