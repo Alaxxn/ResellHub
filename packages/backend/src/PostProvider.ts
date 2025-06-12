@@ -3,7 +3,7 @@ import {IApiPostData} from "./shared/ApiPostData";
 
 interface IPostDocument {
     _id: ObjectId;
-    images: [string];
+    images: string[];
     title: string;
     category : string;
     price : number;
@@ -20,6 +20,10 @@ export class PostProvider {
             throw new Error("Missing POSTS_COLLECTION_NAME from environment variables");
         }
         this.collection = this.mongoClient.db().collection(collectionName);
+    }
+
+    async insertPost(post: IPostDocument) {
+        return await this.collection.insertOne(post);
     }
 
     async getAllPost(): Promise<IApiPostData[]> {
