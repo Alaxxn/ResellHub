@@ -17,6 +17,9 @@ export function Feed(props: ContentProp) {
           <Post
             key={post.id}
             username={post.username}
+            title={post.title}
+            category={post.category}
+            price={post.price}
             description={post.description}
             images={post.images}
           />
