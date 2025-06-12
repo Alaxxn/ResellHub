@@ -2,16 +2,18 @@ import express, { Request, Response } from "express";
 import path from "path";
 import dotenv from "dotenv";
 import { ValidRoutes } from "./shared/ValidRoutes";
-import {fetchDataFromServer} from "./shared/MockAppData"
+import {connectMongo} from "./connectMongo";
+import {PostProvider} from "./PostProvider";
 
-
-dotenv.config(); // Read the .env file in the current working directory, and load values into process.env.
+dotenv.config(); 
 const PORT = process.env.PORT || 3000;
 const STATIC_DIR = process.env.STATIC_DIR || "public";
 const resolvedStaticDir = path.resolve(process.cwd(), STATIC_DIR);
-
-
 const app = express();
+const mongoClient = connectMongo();
+const postProvider = new PostProvider(mongoClient);
+
+
 
 app.use(express.static(STATIC_DIR));
 
@@ -29,8 +31,13 @@ Object.values(ValidRoutes).forEach((route) => {
   });
 });
 
-app.get("/api/post", (req: Request, res: Response) => {
-    res.send(fetchDataFromServer());
+app.get("/api/post", async (req: Request, res: Response) => {
+    function waitDuration(numMs: number): Promise<void> {
+      return new Promise(resolve => setTimeout(resolve, numMs));
+    }
+    const wait = await waitDuration(1000);
+    const data = await postProvider.getAllPost()
+    res.send(data);
 });
 
 

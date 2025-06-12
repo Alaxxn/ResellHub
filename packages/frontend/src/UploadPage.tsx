@@ -1,6 +1,6 @@
 import React, { useActionState, useState} from "react";
 import {useNavigate } from "react-router";
-import type { IApiPostData } from "../../backend/src/shared/MockAppData.ts";
+import type { IApiPostData } from "../../backend/src/shared/ApiPostData";
 
 function readAsDataURL(file : File): Promise<string> {
     return new Promise((resolve, reject) => {
