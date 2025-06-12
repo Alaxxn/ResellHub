@@ -99,6 +99,36 @@ img{
     height: auto;
 }
 
+.form-container {
+  padding: 2rem;
+  display: flex;
+  margin-top: 6rem;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.upload-form{
+  background-color: var(--color-accent);
+  display: flex;
+  flex-direction: column;
+  gap : 1rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-button {
+  padding: 0.8em;
+  background-color: #1877f2;
+  color: white;
+  cursor: pointer;
+}
+
+
 body.light-mode {
   background-color: #e6ecf0;         /* Soft blue-gray background */
   color: #1f1f1f;                    /* Dark gray text */
@@ -128,3 +158,12 @@ body.light-mode .post-images > img {
   border: 3px solid #7b7f82;         /* Slight border for clarity */
   background-color: #f1f3f5;         /* Image placeholder background */
 }
+
+.noBgColor{
+  color: white;
+}
+
+body.light-mode .noBgColor {
+  color: #000000;
+}
+

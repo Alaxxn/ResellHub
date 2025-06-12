@@ -11,7 +11,7 @@ export function UploadPage() {
         action="/submit-listing"
         method="post"
         encType="multipart/form-data"
-        style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
+        className="upload-form"
       >
         <label htmlFor="title">Title</label>
         <input 
@@ -27,6 +27,8 @@ export function UploadPage() {
           id="price" 
           name="price" 
           min="0" 
+          step="0.01"
+          placeholder="e.g. 5.00" 
           required />
 
         <label htmlFor="category">Category</label>

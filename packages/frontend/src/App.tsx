@@ -5,6 +5,7 @@ import { fetchDataFromServer } from "./MockAppData";
 import { ValidRoutes } from "../../backend/src/shared/ValidRoutes";
 import { MainLayout } from "./MainLayout";
 import { UploadPage } from "./UploadPage";
+import { LoginPage } from "./LoginPage";
 
 function App() {
 
@@ -29,8 +30,8 @@ function App() {
             <Route index element={<Feed data={posts} isProfile={false} user={user}/>} />
             <Route path={ValidRoutes.UPLOAD} element={<UploadPage/>} />
             <Route path={ValidRoutes.PROFILE} element={<Feed data={posts} isProfile={true} user={user}/>} />
-            <Route path={ValidRoutes.LOGIN} element={<div> TODO </div>} />
-            <Route path={ValidRoutes.REGISTER} element={<div> TODO </div>} />
+            <Route path={ValidRoutes.LOGIN} element={<LoginPage isRegistering={false}/>}  />
+            <Route path={ValidRoutes.REGISTER} element={<LoginPage isRegistering={true}/>} />
         </Route> 
         </Routes>
     );
