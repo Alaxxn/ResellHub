@@ -7,7 +7,9 @@ import "./Header.css";
 
 
 interface MainLayoutProp {
-    lightModeFun : () => void
+    lightModeFun : () => void;
+    user : string;
+    isLogedIn : boolean;
 }
 
 export function Header(props : MainLayoutProp) {
@@ -29,7 +31,7 @@ export function Header(props : MainLayoutProp) {
             <li>
                 <Link to="/profile">
                 <img src={profile} alt=""/>
-                <p>Profile</p>
+                {props.isLogedIn ? <p> {props.user} </p>: <p> Profile </p>}
                 </Link>
             </li>
             <li className='button'>

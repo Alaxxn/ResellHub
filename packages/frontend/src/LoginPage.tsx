@@ -5,6 +5,9 @@ import { Link, useNavigate } from "react-router";
 
 interface LoginProp{
     isRegistering : boolean;
+    updateUser : React.Dispatch<React.SetStateAction<string>>;
+    updateLogin : React.Dispatch<React.SetStateAction<boolean>>;
+
 }
 
 interface ActionResult {
@@ -18,6 +21,8 @@ export function LoginPage(props : LoginProp) {
   const navigate = useNavigate();
 
   async function handleRegister( username: string, password: string ): Promise<ActionResult> {
+    props.updateLogin(true);
+    props.updateUser(username);
     return {
         error: false,
         message: `Successfully registered ${username} with passowrd ${password}`,
@@ -25,6 +30,8 @@ export function LoginPage(props : LoginProp) {
   }
 
   async function handleLogin( username: string, password: string ): Promise<ActionResult> {
+    props.updateLogin(true);
+    props.updateUser(username);
     return {
         error: false,
         message: `Successfully registered ${username} with passowrd ${password}`,
