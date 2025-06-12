@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {Feed} from "./Feed.tsx";
 import { Routes, Route } from "react-router";
-import { fetchDataFromServer } from "./MockAppData";
+import { fetchDataFromServer } from "../../backend/src/shared/MockAppData.ts";
 import { ValidRoutes } from "../../backend/src/shared/ValidRoutes";
 import { MainLayout } from "./MainLayout";
 import { UploadPage } from "./UploadPage";

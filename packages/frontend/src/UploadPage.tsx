@@ -1,6 +1,6 @@
 import React, { useActionState, useState} from "react";
 import {useNavigate } from "react-router";
-import type { PostData } from "./MockAppData.ts";
+import type { IApiPostData } from "../../backend/src/shared/MockAppData.ts";
 
 function readAsDataURL(file : File): Promise<string> {
     return new Promise((resolve, reject) => {
@@ -12,7 +12,7 @@ function readAsDataURL(file : File): Promise<string> {
 }
 
 interface UploadPageProps {
-  addPost: React.Dispatch<React.SetStateAction<PostData[]>>;
+  addPost: React.Dispatch<React.SetStateAction<IApiPostData[]>>;
   user: string;
 }
 

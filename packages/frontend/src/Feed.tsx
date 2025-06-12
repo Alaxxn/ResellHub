@@ -1,8 +1,8 @@
-import type { PostData } from "./MockAppData.ts";
+import type { IApiPostData } from "../../backend/src/shared/MockAppData.ts";
 import { Post } from "./Post.tsx";
 
 interface ContentProp {
-  data: PostData[];
+  data: IApiPostData[];
   isProfile : boolean;
   user: string;
 }

@@ -1,4 +1,4 @@
-export interface PostData {
+export interface IApiPostData {
     id: string;
     username: string;
     title: string;
@@ -9,12 +9,12 @@ export interface PostData {
 }
 
 
-export interface IUserData {
+export interface IApiUserData {
     id: string,
     username: string
 }
 
-export const POSTS: PostData[] = [
+export const POSTS: IApiPostData[] = [
   {
     id: "0",
     username: "garagehunter88",
