@@ -17,7 +17,7 @@ export function Post(props: PostProp) {
       <p>{props.description}</p>
       <div className="post-images">
         {props.images.map((imgUrl, index) => (
-          <img src={imgUrl} alt={`Post image ${index + 1}`} />
+          <img key={index} src={imgUrl} alt={`Post image ${index + 1}`} />
         ))}
       </div>
     </div>
