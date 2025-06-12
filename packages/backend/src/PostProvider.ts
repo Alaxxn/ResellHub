@@ -1,4 +1,5 @@
 import { MongoClient,  ObjectId, Collection } from "mongodb";
+import {IApiPostData} from "./shared/ApiPostData";
 
 interface IPostDocument {
     _id: ObjectId;
@@ -21,7 +22,17 @@ export class PostProvider {
         this.collection = this.mongoClient.db().collection(collectionName);
     }
 
-    getAllPost() {
-        return this.collection.find().toArray(); // Without any options, will by default get all documents in the collection as an array.
+    async getAllPost(): Promise<IApiPostData[]> {
+        const docs = await this.collection.find().toArray();
+
+        return docs.map((doc) => ({
+            id: doc._id.toHexString(),
+            username: doc.usernameId,
+            title: doc.title,
+            category: doc.category as "electronics" | "clothing" | "other",
+            price: doc.price,
+            description: doc.description,
+            images: doc.images,
+        }));
     }
 }

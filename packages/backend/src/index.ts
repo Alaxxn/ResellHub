@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { ValidRoutes } from "./shared/ValidRoutes";
 import {connectMongo} from "./connectMongo";
 import {PostProvider} from "./PostProvider";
+import {registerImageRoutes} from "./routes/postRoutes";
 
 dotenv.config(); 
 const PORT = process.env.PORT || 3000;
@@ -12,6 +13,9 @@ const resolvedStaticDir = path.resolve(process.cwd(), STATIC_DIR);
 const app = express();
 const mongoClient = connectMongo();
 const postProvider = new PostProvider(mongoClient);
+
+
+registerImageRoutes(app, postProvider);
 
 
 
@@ -29,15 +33,6 @@ Object.values(ValidRoutes).forEach((route) => {
       }
     });
   });
-});
-
-app.get("/api/post", async (req: Request, res: Response) => {
-    function waitDuration(numMs: number): Promise<void> {
-      return new Promise(resolve => setTimeout(resolve, numMs));
-    }
-    const wait = await waitDuration(1000);
-    const data = await postProvider.getAllPost()
-    res.send(data);
 });
 
 
