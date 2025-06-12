@@ -33,7 +33,7 @@ function App() {
             user={user}
             isLogedIn = {isLogedIn}/>} >
             <Route index element={<Feed data={posts} isProfile={false} user={user}/>} />
-            <Route path={ValidRoutes.UPLOAD} element={<UploadPage/>} />
+            <Route path={ValidRoutes.UPLOAD} element={<UploadPage addPost={_updatePost} user={user} />} />
             <Route path={ValidRoutes.PROFILE} element={<Feed data={posts} isProfile={true} user={user}/>} />
             <Route path={ValidRoutes.LOGIN} element={<LoginPage 
             isRegistering={false} 

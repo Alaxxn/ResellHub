@@ -19,9 +19,9 @@ export function Post(props: PostProp) {
         <h1 className="username">{props.username}</h1>
       </div>
       <h1>{props.title}</h1>
-      <p>Category : {props.category}</p>
-      <p>Paid : ${props.price}</p>
-      <p>{props.description}</p>
+      <p> <u>Category</u> : {props.category}</p>
+      <p>$ {props.price}</p>
+      <p> <u>Description</u> : {props.description}</p>
       <div className="post-images">
         {props.images.map((imgUrl, index) => (
           <img key={index} src={imgUrl} alt={`Post image ${index + 1}`} />
