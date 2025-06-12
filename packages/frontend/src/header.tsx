@@ -1,7 +1,7 @@
 import home from './icons/home.svg';
 import camera from './icons/camera.svg';
 import profile from './icons/profile.svg';
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 export function Header() {
@@ -9,22 +9,22 @@ export function Header() {
     <nav className="navigation">
         <ul>
             <li >
-                <a href="index.html">
+                <Link to="/">
                 <img src={home} alt=""/>
                 <p>Home</p>
-                </a>
+                </Link>
             </li>
             <li>
-                <a href="post.html">
+                <Link to="/upload">
                 <img src={camera} alt=""/>
                 <p>Post</p>
-                </a>
+                </Link>
             </li>
             <li>
-                <a href="profile.html">
+                <Link to="/profile">
                 <img src={profile} alt=""/>
                 <p>Profile</p>
-                </a>
+                </Link>
             </li>
         </ul>
     </nav>

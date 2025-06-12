@@ -1,6 +1,7 @@
 import profile from './icons/profile.svg';
 
 interface PostProp {
+  key : string;
   username: string;
   description: string;
   images: string[];
@@ -14,7 +15,6 @@ export function Post(props: PostProp) {
         <h1 className="username">{props.username}</h1>
       </div>
       <p>{props.description}</p>
-
       <div className="post-images">
         {props.images.map((imgUrl, index) => (
           <img src={imgUrl} alt={`Post image ${index + 1}`} />

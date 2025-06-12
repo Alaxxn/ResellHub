@@ -1,5 +1,5 @@
 
-export function Form() {
+export function UploadPage() {
   return (
     <div className="content">   
     <div className="form-container">

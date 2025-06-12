@@ -23,7 +23,7 @@ body {
     min-height: 100vh;
     overflow: hidden;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
 
 }
@@ -32,6 +32,7 @@ body {
     display: flex;
     justify-content: center;
     margin: 1rem;
+    margin-bottom: 1rem;
 }
 
 .header > h1{
@@ -48,14 +49,16 @@ body {
     font-size: 1.2rem;
 }
 
-.content{
+.content {
     padding: 1em;
+    flex: 1 1 auto;
     display: flex;
-    flex: 1 1 auto; /* flexible size */
-    align-items: center;
-    justify-content: space-around;
+    justify-content: center;   /* Center horizontally */
+    align-items: center;       /* Center vertically */
     flex-direction: column;
+    margin-top: 1rem;
     gap: 1rem;
+    min-height: 100vh;         /* Ensure it fills the screen */
 }
 .post-container {
     display: flex;
