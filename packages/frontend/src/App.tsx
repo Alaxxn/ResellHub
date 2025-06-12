@@ -10,6 +10,7 @@ function App() {
 
     const [posts, _updatePost] = useState(fetchDataFromServer);
     const [lightMode , _changeMode] = useState(false);
+    const [user , _setusername] = useState("Alaxxn");
 
     function updateTheme (){
         if (lightMode){
@@ -25,9 +26,9 @@ function App() {
     return (
         <Routes>
         <Route path={ValidRoutes.HOME} element={<MainLayout lightModeFun = {updateTheme}/>} >
-            <Route index element={<Feed data={posts}/>} />
+            <Route index element={<Feed data={posts} isProfile={false} user={user}/>} />
             <Route path={ValidRoutes.UPLOAD} element={<UploadPage/>} />
-            <Route path={ValidRoutes.PROFILE} element={<Feed data={posts}/>} />
+            <Route path={ValidRoutes.PROFILE} element={<Feed data={posts} isProfile={true} user={user}/>} />
             <Route path={ValidRoutes.LOGIN} element={<div> TODO </div>} />
             <Route path={ValidRoutes.REGISTER} element={<div> TODO </div>} />
         </Route> 

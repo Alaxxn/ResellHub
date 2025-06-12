@@ -39,7 +39,7 @@ export const POSTS: PostData[] = [
   },
   {
     id: "2",
-    username: "vintagedeals",
+    username: "Alaxxn",
     title: "Polaroid Land Camera 1000",
     category: "electronics",
     price: 20,
@@ -73,7 +73,7 @@ export const POSTS: PostData[] = [
   },
   {
     id: "7",
-    username: "flipmaster",
+    username: "Alaxxn",
     title: "Rare Pokémon Cards Bundle",
     category: "other",
     price: 10,
