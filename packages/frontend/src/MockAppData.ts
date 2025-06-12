@@ -13,7 +13,7 @@ export interface IUserData {
 const POSTS: PostData[] = [
     {
         id: "0",
-        username: "chunkylover23",
+        username: "Alaxxn",
         description: "Blue merle herding sheep Blue merle herding sheepBlue merle herding sheepBlue merle herding sheepBlue merle herding sheepBlue merle herding sheepBlue merle herding sheepBlue merle herding sheepBlue merle herding sheepBlue merle herding sheepBlue merle herding sheepBlue merle herding sheepBlue merle herding sheepBlue merle herding sheep",
         images: [
             "https://upload.wikimedia.org/wikipedia/commons/3/33/Blue_merle_koolie_short_coat_heading_sheep.jpg",
@@ -34,7 +34,7 @@ const POSTS: PostData[] = [
     },
     {
         id: "2",
-        username: "chunkylover23",
+        username: "SRDemon",
         description: "Shiba",
         images: [
             "https://upload.wikimedia.org/wikipedia/commons/6/6b/Taka_Shiba.jpg"
@@ -42,7 +42,7 @@ const POSTS: PostData[] = [
     },
     {
         id: "3",
-        username: "silas_meow",
+        username: "Kaysan",
         description: "Tabby cat",
         images: [
             "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Felis_catus-cat_on_snow.jpg/2560px-Felis_catus-cat_on_snow.jpg"

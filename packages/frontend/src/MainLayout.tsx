@@ -1,10 +1,15 @@
 import { Header } from "./Header.tsx";
 import { Outlet } from "react-router";
 
-export function MainLayout() {
+
+interface MainLayoutProp {
+    lightModeFun : () => void
+}
+
+export function MainLayout(props : MainLayoutProp) {
     return (
         <div>
-            <Header />
+            <Header lightModeFun = {props.lightModeFun}/>
             <Outlet />
         </div>
     );

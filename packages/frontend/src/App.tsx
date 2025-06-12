@@ -8,11 +8,22 @@ import { UploadPage } from "./UploadPage";
 
 function App() {
 
-  const [posts, _updatePost] = useState(fetchDataFromServer);
+    const [posts, _updatePost] = useState(fetchDataFromServer);
+    const [lightMode , _changeMode] = useState(false);
+
+    function updateTheme (){
+        if (lightMode){
+            document.body.classList.remove("light-mode");
+            _changeMode(false);
+        }else{
+            document.body.classList.add("light-mode");
+             _changeMode(true);
+        }
+    }
   
     return (
         <Routes>
-        <Route path={ValidRoutes.HOME} element={<MainLayout />} >
+        <Route path={ValidRoutes.HOME} element={<MainLayout lightModeFun = {updateTheme}/>} >
             <Route index element={<Feed data={posts}/>} />
             <Route path={ValidRoutes.UPLOAD} element={<UploadPage/>} />
             <Route path={ValidRoutes.PROFILE} element={<h1> TODO </h1>} />
