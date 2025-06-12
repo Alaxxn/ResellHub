@@ -5,6 +5,10 @@ import { ValidRoutes } from "./shared/ValidRoutes";
 import {connectMongo} from "./connectMongo";
 import {PostProvider} from "./PostProvider";
 import {registerImageRoutes} from "./routes/postRoutes";
+import {registerAuthRoutes} from "./routes/authRoutes";
+import {CredentialsProvider} from "./CredentialsProvider";
+import { verifyAuthToken } from "./verifyAuthToken";
+
 
 dotenv.config(); 
 const PORT = process.env.PORT || 3000;
@@ -13,9 +17,10 @@ const resolvedStaticDir = path.resolve(process.cwd(), STATIC_DIR);
 const app = express();
 const mongoClient = connectMongo();
 const postProvider = new PostProvider(mongoClient);
+const credentialsProvider = new CredentialsProvider(mongoClient);
+app.locals.JWT_SECRET = process.env.JWT_SECRET
 
 
-registerImageRoutes(app, postProvider);
 
 
 
@@ -34,6 +39,10 @@ Object.values(ValidRoutes).forEach((route) => {
     });
   });
 });
+
+app.use("/api/*", verifyAuthToken);
+registerImageRoutes(app, postProvider);
+registerAuthRoutes(app, credentialsProvider);
 
 
 app.listen(PORT, () => {
