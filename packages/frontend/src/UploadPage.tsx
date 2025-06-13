@@ -5,6 +5,7 @@ import type { IApiPostData } from "../../backend/src/shared/ApiPostData";
 interface UploadPageProps {
   addPost: React.Dispatch<React.SetStateAction<IApiPostData[]>>;
   user: string;
+  authToken : string;
 }
 
 export function UploadPage(props: UploadPageProps) {
@@ -29,6 +30,9 @@ export function UploadPage(props: UploadPageProps) {
 
       const response = await fetch("/api/post", {
         method: "POST",
+        headers: {
+                Authorization: `Bearer ${props.authToken}`
+        },
         body: formData,
       });
 

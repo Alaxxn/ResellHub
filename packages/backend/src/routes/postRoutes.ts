@@ -35,10 +35,7 @@ export function registerImageRoutes(app: express.Application, postProvider: Post
     res.send(data);
   });
 
-  app.post(
-    "/api/post",
-    upload.array("photos"), // parse multipart form data
-    async (req: Request, res: Response) => {
+  app.post( "/api/post", upload.array("photos"), async (req: Request, res: Response) => {
         const body = req.body;
         const files = req.files as Express.Multer.File[];
         console.log("Received files:", files.map(f => f.filename));
