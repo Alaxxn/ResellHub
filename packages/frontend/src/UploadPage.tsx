@@ -1,4 +1,4 @@
-import React, { useActionState, useState } from "react";
+import React, { useActionState } from "react";
 import { useNavigate } from "react-router";
 import type { IApiPostData } from "../../backend/src/shared/ApiPostData";
 
@@ -16,14 +16,9 @@ export function UploadPage(props: UploadPageProps) {
   const imageInputId = React.useId();
   const navigate = useNavigate();
 
-  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const [result, submitAction, isPending] = useActionState(
     async (_prevState: unknown, formData: FormData) => {
-      console.log("Appending files:", selectedFiles.length);
-      for (const file of selectedFiles) {
-        formData.append("photos", file);
-      }
 
       // Add text fields manually in case they're not present
       formData.append("username", props.user);
@@ -48,7 +43,7 @@ export function UploadPage(props: UploadPageProps) {
         price: parseFloat(formData.get("price") as string),
         category: formData.get("category") as "electronics" | "clothing" | "other",
         description: formData.get("description") as string,
-        images: [], // You can later replace with URLs from backend
+        images: resJson.filenames || [],
       };
 
       props.addPost(prev => [...prev, newPost]);
@@ -58,11 +53,6 @@ export function UploadPage(props: UploadPageProps) {
     null
   );
 
-  function handleFileSelected(e: React.ChangeEvent<HTMLInputElement>) {
-    const files = e.target.files;
-    if (!files) return;
-    setSelectedFiles(Array.from(files));
-  }
   return (
     <div className="content">
       <div className="form-container">
@@ -120,7 +110,6 @@ export function UploadPage(props: UploadPageProps) {
             type="file"
             id={imageInputId}
             name="photos"
-            onChange={handleFileSelected}
             multiple
             accept="image/*"
             disabled={isPending}

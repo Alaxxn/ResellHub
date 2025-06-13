@@ -11,8 +11,6 @@ interface PostProp {
 }
 
 export function Post(props: PostProp) {
-
-  console.log(props.images);
   
   return (
     <div className="post-container">
