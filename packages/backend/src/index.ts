@@ -20,15 +20,14 @@ const postProvider = new PostProvider(mongoClient);
 const credentialsProvider = new CredentialsProvider(mongoClient);
 app.locals.JWT_SECRET = process.env.JWT_SECRET
 
-
-
-
-
 app.use(express.static(STATIC_DIR));
 
 app.get("/api/hello", (req: Request, res: Response) => {
     res.send("Hello, World");
 });
+
+app.use("/images", express.static(path.join(__dirname, "..", "images")));
+
 
 Object.values(ValidRoutes).forEach((route) => {
   app.get(route, (req, res, next) => {

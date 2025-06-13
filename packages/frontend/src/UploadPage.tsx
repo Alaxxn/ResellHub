@@ -68,8 +68,6 @@ export function UploadPage(props: UploadPageProps) {
       <div className="form-container">
         <form
           action={submitAction}
-          method="post"
-          encType="multipart/form-data"
           className="upload-form"
         >
           <label htmlFor={titleInputId}>Title</label>
