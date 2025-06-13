@@ -1,15 +1,16 @@
-import type { PostData } from "./MockAppData.ts";
+import type { IApiPostData } from "../../backend/src/shared/ApiPostData";
 import { Post } from "./Post.tsx";
 
 interface ContentProp {
-  data: PostData[];
-  isProfile : boolean;
+  data: IApiPostData[];
+  isProfile: boolean;
   user: string;
+  loading: boolean;
+  error: boolean;
 }
 
 export function Feed(props: ContentProp) {
-
-    const postsToRender = props.isProfile
+  const postsToRender = props.isProfile
     ? props.data.filter((post) => post.username === props.user)
     : props.data;
 
@@ -20,7 +21,10 @@ export function Feed(props: ContentProp) {
       </div>
 
       <div className="content">
-          {postsToRender.map((post) => (
+        {props.loading ? (
+          <h2>Loading...</h2>
+        ) : (
+          postsToRender.map((post) => (
             <Post
               key={post.id}
               username={post.username}
@@ -30,8 +34,9 @@ export function Feed(props: ContentProp) {
               description={post.description}
               images={post.images}
             />
-          ))}
-        </div>
+          ))
+        )}
       </div>
+    </div>
   );
 }

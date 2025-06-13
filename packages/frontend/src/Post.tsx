@@ -11,6 +11,8 @@ interface PostProp {
 }
 
 export function Post(props: PostProp) {
+
+  console.log(props.images);
   
   return (
     <div className="post-container">
@@ -23,8 +25,8 @@ export function Post(props: PostProp) {
       <p>$ {props.price}</p>
       <p> <u>Description</u> : {props.description}</p>
       <div className="post-images">
-        {props.images.map((imgUrl, index) => (
-          <img key={index} src={imgUrl} alt={`Post image ${index + 1}`} />
+        {props.images.map((filename, index) => (
+          <img key={index} src={`/images/${filename}`} alt={`Post image ${index + 1}`} />
         ))}
       </div>
     </div>

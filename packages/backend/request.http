@@ -1,0 +1,32 @@
+### Get all Post
+GET http://localhost:3000/api/post
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVlIiwiaWF0IjoxNzQ5NzYxNDMwLCJleHAiOjE3NDk4NDc4MzB9.1d4mrcBa-3poKBWAFADi89c_PZJjPhWaR2RSIEvS2EU
+
+
+### New user registration
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{ "username": "ee", "password": "Hello" }
+
+
+### New user registration
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{ "username": "ee", "password": "Hello" }
+
+### Create new post
+POST http://localhost:3000/api/post
+Content-Type: application/json
+
+{
+  "username": "Alaxxn",
+  "title": "Pokemon Gale Of Darkness",
+  "category": "electronics",
+  "price": 20,
+  "description": "FOUND IN THE TRASH!",
+  "images": [
+    "https://i.ebayimg.com/images/g/oHAAAOSw~rxidEnE/s-l1200.jpg"
+  ]
+}

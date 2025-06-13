@@ -78,6 +78,10 @@ body {
     max-width: 100%;
 }
 
+.message-area{
+  color: rgb(221, 52, 52);
+}
+
 .post-images > img {
     width: 8rem;
     height: 8rem;

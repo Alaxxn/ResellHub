@@ -13,6 +13,7 @@ interface MainLayoutProp {
     isLogedIn : boolean;
     updateUserName : React.Dispatch<React.SetStateAction<string>>;
     updateLogin : React.Dispatch<React.SetStateAction<boolean>>;
+    updateAuth : React.Dispatch<React.SetStateAction<string>>;
 }
 
 export function Header(props : MainLayoutProp) {
@@ -20,6 +21,7 @@ export function Header(props : MainLayoutProp) {
     function handleLogOut (){
         props.updateUserName("");
         props.updateLogin(false);
+        props.updateAuth("");
     }
 
     return (
