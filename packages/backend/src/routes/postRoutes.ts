@@ -65,7 +65,10 @@ export function registerImageRoutes(app: express.Application, postProvider: Post
 
       try {
         const inserted = await postProvider.insertPost(newPost);
-        res.status(201).json({ insertedId: inserted.insertedId.toHexString() });
+        res.status(201).json({ 
+          insertedId: inserted.insertedId.toHexString(),
+          filenames: imagePaths,
+        });
       } catch (err) {
         console.error("Insert failed:", err);
         res.status(500).json({ error: "Internal server error" });
